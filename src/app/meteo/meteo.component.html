@@ -1,0 +1,14 @@
+<mat-card>
+    <mat-card-title>Ville : <span (click)="onClick($event)" (keydown)="onPressEnter($event)">{{ meteo.city }}</span></mat-card-title >
+    <mat-card-content>
+      <p>
+          Température : {{ meteo.temperature }}
+      </p>
+      <p>
+          Description : {{ meteo.description }}
+      </p>
+      <p style="display:flex; align-items: center; justify-content: center">
+          Icone : <img src="http://openweathermap.org/img/w/{{ meteo.icon }}.png" alt="meteo.icon" *ngIf="meteo.icon">
+      </p>
+    </mat-card-content>
+</mat-card>
