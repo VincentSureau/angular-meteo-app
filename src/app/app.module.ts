@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatCardModule } from '@angular/material';
+import { MatCardModule, MatDividerModule, MatGridListModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -14,6 +14,8 @@ import { MeteoComponent } from './meteo/meteo.component';
   imports: [
     BrowserModule,
     MatCardModule,
+    MatDividerModule,
+    MatGridListModule,
     HttpClientModule
   ],
   providers: [],

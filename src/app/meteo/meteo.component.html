@@ -1,14 +1,66 @@
-<mat-card>
-    <mat-card-title>Ville : <span (click)="onClick($event)" (keydown)="onPressEnter($event)">{{ meteo.city }}</span></mat-card-title >
+<mat-card class="meteo-title">
     <mat-card-content>
-      <p>
-          Température : {{ meteo.temperature }}
-      </p>
-      <p>
-          Description : {{ meteo.description }}
-      </p>
-      <p style="display:flex; align-items: center; justify-content: center">
-          Icone : <img src="http://openweathermap.org/img/w/{{ meteo.icon }}.png" alt="meteo.icon" *ngIf="meteo.icon">
-      </p>
+        <mat-card-title>Ville : <span (click)="onClick($event)" (keydown)="onPressEnter($event)">{{ city }}</span></mat-card-title>
     </mat-card-content>
 </mat-card>
+
+<div *ngIf="meteoData['list']" class="meteo-items">
+
+    <mat-card class="meteo-item">
+        <mat-card-content>
+            <mat-card-title>Ce matin</mat-card-title>
+            <mat-divider [inset]="true"></mat-divider>
+            <img mat-card-avatar src="http://openweathermap.org/img/w/{{ meteoData['list'][0]['weather'][0]['icon'] }}.png" [(alt)]="meteoData['list'][0]['weather'][0]['icon']">
+        </mat-card-content>
+        <mat-card-content>
+            Température : {{ meteoData['list'][0]['main']['temp'] }}
+        </mat-card-content>
+        <mat-card-content>
+            Description : {{ meteoData['list'][0]['weather'][0]['description'] }}
+        </mat-card-content>
+    </mat-card>
+    
+    <mat-card class="meteo-item">
+            <mat-card-content>
+                <mat-card-title>Cet après-midi</mat-card-title>
+                <mat-divider [inset]="true"></mat-divider>
+                <img mat-card-avatar src="http://openweathermap.org/img/w/{{ meteoData['list'][1]['weather'][0]['icon'] }}.png" [(alt)]="meteoData['list'][0]['weather'][0]['icon']">
+            </mat-card-content>
+            <mat-card-content>
+                Température : {{ meteoData['list'][1]['main']['temp'] }}
+            </mat-card-content>
+            <mat-card-content>
+                Description : {{ meteoData['list'][1]['weather'][0]['description'] }}
+            </mat-card-content>
+    </mat-card>
+    
+    <mat-card class="meteo-item">
+            <mat-card-content>
+                <mat-card-title>Demain matin</mat-card-title>
+                <mat-divider [inset]="true"></mat-divider>
+                <img mat-card-avatar src="http://openweathermap.org/img/w/{{ meteoData['list'][1]['weather'][0]['icon'] }}.png" [(alt)]="meteoData['list'][0]['weather'][0]['icon']">
+            </mat-card-content>
+            <mat-card-content>
+                Température : {{ meteoData['list'][2]['main']['temp'] }}
+            </mat-card-content>
+            <mat-card-content>
+                Description : {{ meteoData['list'][2]['weather'][0]['description'] }}
+            </mat-card-content>
+    </mat-card>
+    
+    <mat-card class="meteo-item">
+            <mat-card-content>
+                <mat-card-title>Demain après-midi</mat-card-title>
+                <mat-divider [inset]="true"></mat-divider>
+
+                <img mat-card-avatar src="http://openweathermap.org/img/w/{{ meteoData['list'][1]['weather'][0]['icon'] }}.png" [(alt)]="meteoData['list'][0]['weather'][0]['icon']">
+            </mat-card-content>
+            <mat-card-content>
+                Température : {{ meteoData['list'][3]['main']['temp'] }}
+            </mat-card-content>
+            <mat-card-content>
+                Description : {{ meteoData['list'][3]['weather'][0]['description'] }}
+            </mat-card-content>
+    </mat-card>
+
+</div>

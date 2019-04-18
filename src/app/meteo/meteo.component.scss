@@ -1,1 +1,18 @@
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+.meteo-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.meteo-title {
+    width: 50%;
+    margin: auto;
+}
+
+.meteo-item {
+    width: 25%;
+    margin: 2%;
+}
