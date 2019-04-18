@@ -7,30 +7,43 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./meteo.component.scss']
 })
 export class MeteoComponent implements OnInit {
-  public city: string;
-  public ip: string;
+  public city: any;
+  public ip: any;
   public meteoData: any = {};
 
   constructor(
     public http: HttpClient
   ) {
 
-    this.city = 'Forcalqueiret';
-    console.log(this.meteoData);
   }
 
   ngOnInit() {
-    console.log(this.city),
-    this.city = 'Forcalqueiret';
+    this.getIp();
+  }
+
+  getIp() {
     this.http.get(
       'https://api.my-ip.io/ip.json',
       {headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*').set('Access-Control-Allow-Headers', 'Content-Type')}
-      ).subscribe(ip => this.ip = ip['ip']);
+      ).subscribe(ip => {
+        this.ip = ip['ip'];
+        this.getCityFromIp();
+      });
+  }
 
+  getCityFromIp(){
+    this.http.get(
+      `http://api.ipstack.com/${this.ip}?access_key=993a9f495c4630eb2f8d5733a8199856&format=1`
+    ).subscribe(data => {
+      this.city = data['city'];
+      this.getMeteo();
+    });
+  }
+
+  getMeteo() {
     this.http.get(
       `https://api.openweathermap.org/data/2.5/forecast?q=${this.city},fr&APPID=80baecf0928a00cec842d4d50d1a0331&units=metric&lang=fr`)
         .subscribe( meteo => {
-          console.log(meteo);
           this.meteoData = meteo;
         });
   }
@@ -40,14 +53,11 @@ export class MeteoComponent implements OnInit {
   }
 
   onPressEnter($event) {
-    if($event.key === "Enter"){
+    if($event.key === 'Enter'){
       $event.preventDefault();
       $event.target.contentEditable = false;
-      this.http.get(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${$event.target.textContent},fr&APPID=80baecf0928a00cec842d4d50d1a0331&units=metric&lang=fr`)
-          .subscribe( meteo => {
-              this.meteoData = meteo;
-            }
-          );}
+      this.city = $event.target.textContent;
+      this.getMeteo();
+    }
   }
 }
