@@ -9,9 +9,9 @@
     <mat-card class="meteo-item">
         <mat-card-content>
             <mat-card-title>Ce matin</mat-card-title>
-            <mat-divider [inset]="true"></mat-divider>
-            <img mat-card-avatar src="http://openweathermap.org/img/w/{{ meteoData['list'][0]['weather'][0]['icon'] }}.png" [(alt)]="meteoData['list'][0]['weather'][0]['icon']">
         </mat-card-content>
+        <mat-divider [inset]="true"></mat-divider>
+        <img mat-card-avatar src="http://openweathermap.org/img/w/{{ meteoData['list'][0]['weather'][0]['icon'] }}.png" [(alt)]="meteoData['list'][0]['weather'][0]['icon']">
         <mat-card-content>
             Température : {{ meteoData['list'][0]['main']['temp'] }}
         </mat-card-content>
@@ -23,9 +23,9 @@
     <mat-card class="meteo-item">
             <mat-card-content>
                 <mat-card-title>Cet après-midi</mat-card-title>
-                <mat-divider [inset]="true"></mat-divider>
-                <img mat-card-avatar src="http://openweathermap.org/img/w/{{ meteoData['list'][1]['weather'][0]['icon'] }}.png" [(alt)]="meteoData['list'][0]['weather'][0]['icon']">
             </mat-card-content>
+            <mat-divider [inset]="true"></mat-divider>
+            <img mat-card-avatar src="http://openweathermap.org/img/w/{{ meteoData['list'][1]['weather'][0]['icon'] }}.png" [(alt)]="meteoData['list'][0]['weather'][0]['icon']">
             <mat-card-content>
                 Température : {{ meteoData['list'][1]['main']['temp'] }}
             </mat-card-content>
@@ -37,9 +37,9 @@
     <mat-card class="meteo-item">
             <mat-card-content>
                 <mat-card-title>Demain matin</mat-card-title>
-                <mat-divider [inset]="true"></mat-divider>
-                <img mat-card-avatar src="http://openweathermap.org/img/w/{{ meteoData['list'][1]['weather'][0]['icon'] }}.png" [(alt)]="meteoData['list'][0]['weather'][0]['icon']">
             </mat-card-content>
+            <mat-divider [inset]="true"></mat-divider>
+            <img mat-card-avatar src="http://openweathermap.org/img/w/{{ meteoData['list'][1]['weather'][0]['icon'] }}.png" [(alt)]="meteoData['list'][0]['weather'][0]['icon']">
             <mat-card-content>
                 Température : {{ meteoData['list'][2]['main']['temp'] }}
             </mat-card-content>
@@ -51,10 +51,9 @@
     <mat-card class="meteo-item">
             <mat-card-content>
                 <mat-card-title>Demain après-midi</mat-card-title>
-                <mat-divider [inset]="true"></mat-divider>
-
-                <img mat-card-avatar src="http://openweathermap.org/img/w/{{ meteoData['list'][1]['weather'][0]['icon'] }}.png" [(alt)]="meteoData['list'][0]['weather'][0]['icon']">
             </mat-card-content>
+            <mat-divider [inset]="true"></mat-divider>
+            <img mat-card-avatar src="http://openweathermap.org/img/w/{{ meteoData['list'][1]['weather'][0]['icon'] }}.png" [(alt)]="meteoData['list'][0]['weather'][0]['icon']">
             <mat-card-content>
                 Température : {{ meteoData['list'][3]['main']['temp'] }}
             </mat-card-content>
