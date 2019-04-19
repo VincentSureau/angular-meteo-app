@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { IpObject, CityObject } from '../interface/object';
+
 @Component({
   selector: 'app-meteo',
   templateUrl: './meteo.component.html',
@@ -25,8 +27,8 @@ export class MeteoComponent implements OnInit {
     this.http.get(
       'https://api.my-ip.io/ip.json',
       {headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*').set('Access-Control-Allow-Headers', 'Content-Type')}
-      ).subscribe(ip => {
-        this.ip = ip['ip'];
+      ).subscribe((ip: IpObject) => {
+        this.ip = ip.ip;
         this.getCityFromIp();
       });
   }
@@ -34,8 +36,8 @@ export class MeteoComponent implements OnInit {
   getCityFromIp(){
     this.http.get(
       `http://api.ipstack.com/${this.ip}?access_key=993a9f495c4630eb2f8d5733a8199856&format=1`
-    ).subscribe(data => {
-      this.city = data['city'];
+    ).subscribe((data: CityObject) => {
+      this.city = data.city;
       this.getMeteo();
     });
   }
