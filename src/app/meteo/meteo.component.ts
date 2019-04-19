@@ -34,7 +34,7 @@ export class MeteoComponent implements OnInit {
       });
   }
 
-  getCityFromIp(){
+  getCityFromIp() {
     this.http.get(
       `http://api.ipstack.com/${this.ip}?access_key=993a9f495c4630eb2f8d5733a8199856&format=1`
     ).subscribe((data: CityObject) => {
@@ -56,7 +56,7 @@ export class MeteoComponent implements OnInit {
   }
 
   onPressEnter($event) {
-    if($event.key === 'Enter'){
+    if ($event.key === 'Enter') {
       $event.preventDefault();
       $event.target.contentEditable = false;
       this.city = $event.target.textContent;
