@@ -13,7 +13,7 @@
         <mat-divider [inset]="true"></mat-divider>
         <img mat-card-avatar src="http://openweathermap.org/img/w/{{ meteoData['list'][0]['weather'][0]['icon'] }}.png" [(alt)]="meteoData['list'][0]['weather'][0]['icon']">
         <mat-card-content>
-            Température : {{ meteoData['list'][0]['main']['temp'] }}
+            Température : {{ meteoData['list'][0]['main']['temp'] | celsius }}
         </mat-card-content>
         <mat-card-content>
             Description : {{ meteoData['list'][0]['weather'][0]['description'] }}
@@ -27,10 +27,10 @@
             <mat-divider [inset]="true"></mat-divider>
             <img mat-card-avatar src="http://openweathermap.org/img/w/{{ meteoData['list'][1]['weather'][0]['icon'] }}.png" [(alt)]="meteoData['list'][0]['weather'][0]['icon']">
             <mat-card-content>
-                Température : {{ meteoData['list'][1]['main']['temp'] }}
+                Température : {{ meteoData['list'][1]['main']['temp'] | celsius}}
             </mat-card-content>
             <mat-card-content>
-                Description : {{ meteoData['list'][1]['weather'][0]['description'] }}
+                Description : {{ meteoData['list'][1]['weather'][0]['description']}}
             </mat-card-content>
     </mat-card>
     
@@ -41,7 +41,7 @@
             <mat-divider [inset]="true"></mat-divider>
             <img mat-card-avatar src="http://openweathermap.org/img/w/{{ meteoData['list'][1]['weather'][0]['icon'] }}.png" [(alt)]="meteoData['list'][0]['weather'][0]['icon']">
             <mat-card-content>
-                Température : {{ meteoData['list'][2]['main']['temp'] }}
+                Température : {{ meteoData['list'][2]['main']['temp'] | celsius }}
             </mat-card-content>
             <mat-card-content>
                 Description : {{ meteoData['list'][2]['weather'][0]['description'] }}
@@ -55,7 +55,7 @@
             <mat-divider [inset]="true"></mat-divider>
             <img mat-card-avatar src="http://openweathermap.org/img/w/{{ meteoData['list'][1]['weather'][0]['icon'] }}.png" [(alt)]="meteoData['list'][0]['weather'][0]['icon']">
             <mat-card-content>
-                Température : {{ meteoData['list'][3]['main']['temp'] }}
+                Température : {{ meteoData['list'][3]['main']['temp'] | celsius }}
             </mat-card-content>
             <mat-card-content>
                 Description : {{ meteoData['list'][3]['weather'][0]['description'] }}

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { IpObject, CityObject } from '../interface/object';
+import { CelsiusPipe } from '../pipe/celsius';
 
 @Component({
   selector: 'app-meteo',
